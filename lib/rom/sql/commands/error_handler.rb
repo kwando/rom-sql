@@ -1,8 +1,8 @@
 module ROM
   module SQL
     module Commands
-      module ErrorWrapper
-        def execute(*args)
+      module ErrorHandler
+        def call(*args)
           super
         rescue *ERRORS => e
           raise ConstraintError, e.message
